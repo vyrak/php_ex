@@ -1,12 +1,20 @@
+/* global app: false */
+
 (function() {
   'use strict';
 
-  var phonebookForm = document.getElementById('phonebook')
+  var field, fieldElement
+    , phonebookForm = document.getElementById('phonebook')
     , action1 = document.getElementById('action1')
     , action2 = document.getElementById('action2')
     , action3 = document.getElementById('action3')
     , action4 = document.getElementById('action4')
     ;
+  for (field in app.entry) {
+    fieldElement = document.getElementById(field);
+    fieldElement.setAttribute('value', app.entry[field]);
+  }
+
   phonebookForm.onsubmit = function checkForm() {
     var action = 'Add'
       , valid = true
@@ -35,7 +43,7 @@
   };
 
   function protectFields(action) {
-    var submitButton = document.getElementById('SubmitButton')
+    var submitButton = document.getElementById('submitButton')
       , phoneNumber = document.getElementById('phone')
       , firstName = document.getElementById('firstName')
       , lastName = document.getElementById('lastName')

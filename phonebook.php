@@ -3,33 +3,53 @@
     <title>Collection of Irrelevant People: The Phonebook</title>
   </head>
   <body>
-    <?php
-      if($_POST["Reset"])
-      {
-        $phone = "";
-        $firstName = "";
-        $lastName = "";
-        $address = "";
-        $city = "";
-        $state = "";
-        $zip = "";
-      }
-      else
-      {
-        echo "From form <br/><br/>\n";
-        $action=$_POST['action'];
-        $phone=$_POST['phone'];
-        $firstName=$_POST['firstName'];
-        $lastName=$_POST['lastName'];
-        $address=$_POST['address'];
-        $city=$_POST['city'];
-        $state=$_POST['state'];
-        $zip=$_POST['zip'];
-        $conn=mysql_connect('localhost', 'alpha') or die(mysql_error());
+    <h1>Phonebook</h1>
+    <form name="phonebook" id="phonebook" "phonebook.php" method="POST">
+      <input type="radio" name="action" id="action1" value="A"> Add
+      <input type="radio" name="action" id="action2" value="D"> Delete
+      <input type="radio" name="action" id="action3" value="U"> Update
+      <input type="radio" name="action" id="action4" value="L" checked> Lookup
+      <br/>
+      Phone : <input type="text" name="phone" id="phone" size="12" maxlength="12">
+      <br/>
+      <span id="phoneError"></span>
+      <br/>
+
+      First Name: <input type="text" name="firstName" id="firstName" size="25" maxlength="25">
+      Last Name: <input type="text" name="lastName" id="lastName" size="25" maxlength="25">
+      <br/><br/>
+      Address: <input type="text" name="address" id="address" size="45" maxlength="45">
+      <br/><br/>
+      City: <input type="text" name="city" id="city" size="25" maxlength="25">
+      <br/><br/>
+      State: <input type="text" name="state" id="state" size="2" maxlength="2">
+      <br/><br/>
+      <span id="stateError"> </span>
+      <br/><br/>
+      Zip: <input type="text" name="zip" id="zip" size="5" maxlength="5">
+      <br/><br/>
+      <span id="zipError"></span>
+      <br/><br/>
+      <input id="submitButton" type="submit" value="Record Values">
+      <input type="reset" value="Reset">
+    </form>
+    <script>
+      var app = {action: 'add', entry: {}};
+      <?php
+      if (!$_POST["Reset"]) {
+        $action = $_POST['action'];
+        $phone = $_POST['phone'];
+        $firstName = $_POST['firstName'];
+        $lastName = $_POST['lastName'];
+        $address = $_POST['address'];
+        $city = $_POST['city'];
+        $state = $_POST['state'];
+        $zip = $_POST['zip'];
+
+        $conn = mysql_connect('localhost', 'alpha') or die(mysql_error());
         mysql_select_db("test", $conn);
 
-        switch($action)
-        {
+        switch ($action) {
           case 'A':
             $SQL1 = "insert into phonebook(phone, firstName, lastName, address, city, state, zip) values (" .
                 " '$phone', " .
@@ -40,14 +60,12 @@
                 " '$state', " .
                 " '$zip'" .
                 " ) ";
-            $result1 = mysql_query($SQL1, $conn) or die(mysql_error());
-            echo "<br/>\n";
+            mysql_query($SQL1, $conn) or die(mysql_error());
             break;
 
           case 'D':
-            $SQL1 = "delete from phonebook where phone = '$phone' ";
-            $result1 = mysql_query($SQL1, $conn) or die(mysql_error());
-            echo "<br/>\n";
+            $SQL1 = "delete from phonebook where phone = '$phone'";
+            mysql_query($SQL1, $conn) or die(mysql_error());
             break;
 
           case 'U';
@@ -58,15 +76,12 @@
                 " city = '$city', " .
                 " state = '$state', " .
                 " zip = '$zip'" .
-                " where phone= '$phone' ";
-            $result1 = mysql_query($SQL1, $conn) or die(mysql_error());
+                " where phone= '$phone'";
+            mysql_query($SQL1, $conn) or die(mysql_error());
             break;
 
           case 'L':
-            $SQL1 = " select phone, firstname, lastName,
-                  address, city, state, zip" .
-                " from phonebook " .
-                " where phone = '$phone' ";
+            $SQL1 = "select * from phonebook where phone = '$phone'";
             $result1 = mysql_query($SQL1, $conn) or die(mysql_error());
             $array1 = mysql_fetch_array($result1);
             $phone = $array1['phone'];
@@ -77,45 +92,19 @@
             $state = $array1['state'];
             $zip = $array1['zip'];
             break;
-
-          default:
-            echo "ERROR\n";
-            break;
         }
         mysql_close($conn);
+
+        echo "app.entry.phone = '$phone';";
+        echo "app.entry.firstName = '$firstName';";
+        echo "app.entry.lastName = '$lastName';";
+        echo "app.entry.address = '$address';";
+        echo "app.entry.city = '$city';";
+        echo "app.entry.state = '$state';";
+        echo "app.entry.zip = '$zip';";
       }
-
-      echo " <h1>Phonebook</h1> \n";
-      echo " <form name='phonebook' id='phonebook' 'phonebook.php' method='POST'> \n";
-      echo " <input type='radio' name='action' id='action1' value='A'> Add \n";
-      echo " <input type='radio' name='action' id='action2' value='D'> Delete \n";
-      echo " <input type='radio' name='action' id='action3' value='U'> Update \n";
-      echo " <input type='radio' name='action' id='action4' value='L' checked> Lookup \n";
-      echo " <br/> \n";
-      echo " Phone : <input type='text' name='phone' id='phone' value='$phone' size='12' maxlength='12'> \n";
-      echo " <br/> \n";
-      echo " <span id='phoneError'></span>\n";
-      echo " <br/> \n";
-
-      echo " First Name: <input type='text' name='firstName' id='firstName' value='$firstName' size='25' maxlength='25'> \n";
-      echo " Last Name: <input type='text' name='lastName' id='lastName' value='$lastName' size='25' maxlength='25'> \n";
-      echo " <br/><br/> \n";
-      echo " Address: <input type='text' name='address' id='address' value='$address' size='45' maxlength='45'> \n";
-      echo " <br/><br/> \n";
-      echo " City: <input type='text' name='city' id='city' value='$city' size='25' maxlength='25'> \n";
-      echo " <br/><br/> \n";
-      echo " State: <input type='text' name='state' id='state' value='$state' size='2' maxlength='2'> \n";
-      echo " <br/><br/> \n";
-      echo " <span id='stateError'> </span>\n";
-      echo " <br/><br/> \n";
-      echo " Zip: <input type='text' name='zip' id='zip' value='$zip' size='5' maxlength='5'> \n";
-      echo " <br/><br/> \n";
-      echo " <span id='zipError'></span>\n";
-      echo " <br/><br/> \n";
-      echo " <input id='SubmitButton' type='Submit' value='Record Values'> \n";
-      echo " <input type='Reset' value='Reset'> \n";
-      echo " </form> \n";
-    ?>
-    <script src='phonebook.js' type='text/javascript'></script>
+      ?>
+    </script>
+    <script src="phonebook.js" type="text/javascript"></script>
   </body>
 </HTML>
