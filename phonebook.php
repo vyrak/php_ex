@@ -34,10 +34,10 @@
       <input type="reset" value="Reset">
     </form>
     <script>
-      var app = {action: 'add', entry: {}};
+      var app = {entry: {}};
       <?php
-      if (!$_POST["Reset"]) {
-        $action = $_POST['action'];
+      $action = $_POST['action'];
+      if ($action) {
         $phone = $_POST['phone'];
         $firstName = $_POST['firstName'];
         $lastName = $_POST['lastName'];
