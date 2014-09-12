@@ -1,9 +1,7 @@
 <HTML>
   <head>
     <title>Collection of Irrelevant People: The Phonebook</title>
-    <script src='phonebook.js' type='text/javascript'></script>
   </head>
-
   <body>
     <?php
       if($_POST["Reset"])
@@ -118,5 +116,6 @@
       echo " <input type='Reset' value='Reset'> \n";
       echo " </form> \n";
     ?>
+    <script src='phonebook.js' type='text/javascript'></script>
   </body>
 </HTML>
