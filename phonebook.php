@@ -5,33 +5,33 @@
   <body>
     <h1>Phonebook</h1>
     <form name="phonebook" id="phonebook" "phonebook.php" method="POST">
-      <input type="radio" name="action" id="action1" value="A"> Add
-      <input type="radio" name="action" id="action2" value="D"> Delete
-      <input type="radio" name="action" id="action3" value="U"> Update
-      <input type="radio" name="action" id="action4" value="L" checked> Lookup
-      <br/>
-      Phone : <input type="text" name="phone" id="phone" size="12" maxlength="12">
-      <br/>
-      <span id="phoneError"></span>
-      <br/>
-
-      First Name: <input type="text" name="firstName" id="firstName" size="25" maxlength="25">
-      Last Name: <input type="text" name="lastName" id="lastName" size="25" maxlength="25">
-      <br/><br/>
-      Address: <input type="text" name="address" id="address" size="45" maxlength="45">
-      <br/><br/>
-      City: <input type="text" name="city" id="city" size="25" maxlength="25">
-      <br/><br/>
-      State: <input type="text" name="state" id="state" size="2" maxlength="2">
-      <br/><br/>
-      <span id="stateError"> </span>
-      <br/><br/>
-      Zip: <input type="text" name="zip" id="zip" size="5" maxlength="5">
-      <br/><br/>
-      <span id="zipError"></span>
-      <br/><br/>
-      <input id="submitButton" type="submit" value="Record Values">
-      <input type="reset" value="Reset">
+      <div>
+        <input type="radio" name="action" id="action1" value="A"> Add
+        <input type="radio" name="action" id="action2" value="D"> Delete
+        <input type="radio" name="action" id="action3" value="U"> Update
+        <input type="radio" name="action" id="action4" value="L" checked> Lookup
+      </div>
+      <div>
+        Phone : <input type="text" name="phone" id="phone" size="12" maxlength="12" required>
+      </div>
+      <div>
+        First Name: <input type="text" name="firstName" id="firstName" size="25" maxlength="25">
+        Last Name: <input type="text" name="lastName" id="lastName" size="25" maxlength="25">
+      </div>
+      <div>
+        Address: <input type="text" name="address" id="address" size="45" maxlength="45">
+      </div>
+      <div>
+        City: <input type="text" name="city" id="city" size="25" maxlength="25">
+      </div>
+      <div>
+        State: <input type="text" name="state" id="state" size="2" pattern="[A-Z]{2}">
+        Zip: <input type="text" name="zip" id="zip" size="5" pattern="\d{5}">
+      </div>
+      <div>
+        <input id="submitButton" type="submit" value="Lookup">
+        <input type="reset" value="Reset">
+      </div>
     </form>
     <script>
       var app = {entry: {}};
