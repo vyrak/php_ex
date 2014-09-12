@@ -8,7 +8,7 @@
     <?php
       if($_POST["Reset"])
       {
-        $Phone = "";
+        $phone = "";
         $firstName = "";
         $lastName = "";
         $address = "";
@@ -19,8 +19,8 @@
       else
       {
         echo "From form <br/><br/>\n";
-        $Action=$_POST['Action'];
-        $Phone=$_POST['Phone'];
+        $action=$_POST['action'];
+        $phone=$_POST['phone'];
         $firstName=$_POST['firstName'];
         $lastName=$_POST['lastName'];
         $address=$_POST['address'];
@@ -30,11 +30,11 @@
         $conn=mysql_connect('localhost', 'alpha') or die(mysql_error());
         mysql_select_db("test", $conn);
 
-        switch($Action)
+        switch($action)
         {
           case 'A':
             $SQL1 = "insert into phonebook(phone, firstName, lastName, address, city, state, zip) values (" .
-                " '$Phone', " .
+                " '$phone', " .
                 " '$firstName', " .
                 " '$lastName', " .
                 " '$address', " .
@@ -47,31 +47,31 @@
             break;
 
           case 'D':
-            $SQL1 = "delete from Phonebook where Phone = '$Phone' ";
+            $SQL1 = "delete from phonebook where phone = '$phone' ";
             $result1 = mysql_query($SQL1, $conn) or die(mysql_error());
             echo "<br/>\n";
             break;
 
           case 'U';
-            $SQL1 = "update Phonebook set " .
+            $SQL1 = "update phonebook set " .
                 " firstName = '$firstName', " .
                 " lastName = '$lastName', " .
                 " address = '$address', " .
                 " city = '$city', " .
                 " state = '$state', " .
                 " zip = '$zip'" .
-                " where Phone= '$Phone' ";
+                " where phone= '$phone' ";
             $result1 = mysql_query($SQL1, $conn) or die(mysql_error());
             break;
 
           case 'L':
-            $SQL1 = " select Phone, firstname, lastName,
+            $SQL1 = " select phone, firstname, lastName,
                   address, city, state, zip" .
-                " from Phonebook " .
-                " where Phone = '$Phone' ";
+                " from phonebook " .
+                " where phone = '$phone' ";
             $result1 = mysql_query($SQL1, $conn) or die(mysql_error());
             $array1 = mysql_fetch_array($result1);
-            $Phone = $array1['Phone'];
+            $phone = $array1['phone'];
             $firstName = $array1['firstName'];
             $lastName = $array1['lastName'];
             $address = $array1['address'];
@@ -88,15 +88,15 @@
       }
 
       echo " <h1>Phonebook</h1> \n";
-      echo " <form name='Phonebook' id='Phonebook' 'Phonebook.php' method='POST' onsubmit='return checkForm()'> \n";
-      echo " <input type='radio' name='Action' id='Action1' value='A' checked onClick='protectFields(1)'> Add \n";
-      echo " <input type='radio' name='Action' id='Action2' value='D' checked onClick='protectFields(2)'> Delete \n";
-      echo " <input type='radio' name='Action' id='Action3' value='U' checked onClick='protectFields(3)'> Update \n";
-      echo " <input type='radio' name='Action' id='Action4' value='L' checked onClick='protectFields(4)'> Lookup \n";
+      echo " <form name='phonebook' id='phonebook' 'phonebook.php' method='POST' onsubmit='return checkForm()'> \n";
+      echo " <input type='radio' name='action' id='action1' value='A' checked onClick='protectFields(1)'> Add \n";
+      echo " <input type='radio' name='action' id='action2' value='D' checked onClick='protectFields(2)'> Delete \n";
+      echo " <input type='radio' name='action' id='action3' value='U' checked onClick='protectFields(3)'> Update \n";
+      echo " <input type='radio' name='action' id='action4' value='L' checked onClick='protectFields(4)'> Lookup \n";
       echo " <br/> \n";
-      echo " Phone : <input type='text' name='Phone' id='Phone' value='$Phone' size='12' maxlength='12'> \n";
+      echo " Phone : <input type='text' name='phone' id='phone' value='$phone' size='12' maxlength='12'> \n";
       echo " <br/> \n";
-      echo " <span id='PhoneError'></span>\n";
+      echo " <span id='phoneError'></span>\n";
       echo " <br/> \n";
 
       echo " First Name: <input type='text' name='firstName' id='firstName' value='$firstName' size='25' maxlength='25'> \n";

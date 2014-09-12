@@ -1,42 +1,43 @@
-var action='Add';
 function checkForm() {
   'use strict';
 
-  var areThereErrors='no';
-  var phoneNumber=document.getElementById('Phone');
+  var action = 'Add'
+    , pattern = /\d\d\d-\d\d\d-\d\d\d\d/
+    , areThereErrors = 'no'
+    , phoneNumber = document.getElementById('phone')
+    , firstName = document.getElementById('firstName')
+    , lastName = document.getElementById('lastName')
+    , address = document.getElementById('address')
+    , city = document.getElementById('city')
+    , state = document.getElementById('state')
+    , zip = document.getElementById('zip')
+    , phoneError = document.getElementById('phoneError')
+    , firstNameError = document.getElementById('FirstNameError')
+    , lastNameError = document.getElementById('LastNameError')
+    , addressError = document.getElementById('address')
+    , cityError = document.getElementById('city')
+    , stateError = document.getElementById('state')
+    , zipError = document.getElementById('zip')
+    ;
   phoneNumber.style.backgroundColor='white';
-  phoneError=document.getElementById('PhoneError');
   phoneError.innerHTML=null;
-  Pattern=/\d\d\d-\d\d\d-\d\d\d\d/;
 
-  var firstName=document.getElementById('firstName');
   firstName.style.backgroundColor='white';
-  firstNameError=document.getElementById('FirstNameError');
-  firstNameerror.innerHTML=null;
+  firstNameError.innerHTML=null;
 
-  var lastName=document.getElementById('lastName');
   lastName.style.backgroundColor='white';
-  lastNameError=document.getElementById('LastNameError');
   lastNameError.innerHTML=null;
 
-  var address=document.getElementById('address');
   address.style.backgroundColor='white';
-  addressError=document.getElementById('address');
   addressError.innerHTML=null;
 
-  var city=document.getElementById('city');
   city.style.backgroundColor='white';
-  cityError=document.getElementById('city');
   cityError.inner.HTML=null;
 
-  var state=document.getElementById('state');
   state.style.backgroundColor='white';
-  stateError=document.getElementById('state');
   stateError.inner.HTML=null;
 
-  var zip=document.getElementById('zip');
   zip.style.backgroundColor='white';
-  zipError=document.getElementById('zip');
   zipError.inner.HTML=null;
 
   if (action === 'add' || action==='Update' || state.value.length < 2) {
@@ -54,15 +55,15 @@ function checkForm() {
 function protectFields(action) {
   'use strict';
 
-  var submitButton=document.getElementById('SubmitButton');
-  var phoneNumber=document.getElementById('Phone');
-  var firstName=document.getElementById('firstName');
-  var lastName=document.getElementById('lastName');
-  var address=document.getElementById('address');
-  var city=document.getElementById('city');
-  var state=document.getElementById('state');
-  var zip=document.getElementById('zip');
-
+  var submitButton = document.getElementById('SubmitButton')
+    , phoneNumber = document.getElementById('phone')
+    , firstName = document.getElementById('firstName')
+    , lastName = document.getElementById('lastName')
+    , address = document.getElementById('address')
+    , city = document.getElementById('city')
+    , state = document.getElementById('state')
+    , zip = document.getElementById('zip')
+    ;
   switch(action) {
   case 1:
     submitButton.value='Add';
