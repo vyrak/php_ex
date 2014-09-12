@@ -86,11 +86,11 @@
       }
 
       echo " <h1>Phonebook</h1> \n";
-      echo " <form name='phonebook' id='phonebook' 'phonebook.php' method='POST' onsubmit='return checkForm()'> \n";
-      echo " <input type='radio' name='action' id='action1' value='A' checked onClick='protectFields(1)'> Add \n";
-      echo " <input type='radio' name='action' id='action2' value='D' checked onClick='protectFields(2)'> Delete \n";
-      echo " <input type='radio' name='action' id='action3' value='U' checked onClick='protectFields(3)'> Update \n";
-      echo " <input type='radio' name='action' id='action4' value='L' checked onClick='protectFields(4)'> Lookup \n";
+      echo " <form name='phonebook' id='phonebook' 'phonebook.php' method='POST'> \n";
+      echo " <input type='radio' name='action' id='action1' value='A'> Add \n";
+      echo " <input type='radio' name='action' id='action2' value='D'> Delete \n";
+      echo " <input type='radio' name='action' id='action3' value='U'> Update \n";
+      echo " <input type='radio' name='action' id='action4' value='L' checked> Lookup \n";
       echo " <br/> \n";
       echo " Phone : <input type='text' name='phone' id='phone' value='$phone' size='12' maxlength='12'> \n";
       echo " <br/> \n";
@@ -106,11 +106,11 @@
       echo " <br/><br/> \n";
       echo " State: <input type='text' name='state' id='state' value='$state' size='2' maxlength='2'> \n";
       echo " <br/><br/> \n";
-      echo " <span id='StateError'> </span>\n";
+      echo " <span id='stateError'> </span>\n";
       echo " <br/><br/> \n";
       echo " Zip: <input type='text' name='zip' id='zip' value='$zip' size='5' maxlength='5'> \n";
       echo " <br/><br/> \n";
-      echo " <span id='ZipError'></span>\n";
+      echo " <span id='zipError'></span>\n";
       echo " <br/><br/> \n";
       echo " <input id='SubmitButton' type='Submit' value='Record Values'> \n";
       echo " <input type='Reset' value='Reset'> \n";

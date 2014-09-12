@@ -1,56 +1,37 @@
-function checkForm() {
+var phonebookForm = document.getElementById('phonebook')
+  , action1 = document.getElementById('action1')
+  , action2 = document.getElementById('action2')
+  , action3 = document.getElementById('action3')
+  , action4 = document.getElementById('action4')
+  ;
+phonebookForm.onsubmit = function checkForm() {
   'use strict';
 
   var action = 'Add'
-    , pattern = /\d\d\d-\d\d\d-\d\d\d\d/
-    , areThereErrors = 'no'
+    , valid = true
     , phoneNumber = document.getElementById('phone')
-    , firstName = document.getElementById('firstName')
-    , lastName = document.getElementById('lastName')
-    , address = document.getElementById('address')
-    , city = document.getElementById('city')
-    , state = document.getElementById('state')
-    , zip = document.getElementById('zip')
     , phoneError = document.getElementById('phoneError')
-    , firstNameError = document.getElementById('FirstNameError')
-    , lastNameError = document.getElementById('LastNameError')
-    , addressError = document.getElementById('address')
-    , cityError = document.getElementById('city')
+    , state = document.getElementById('state')
     , stateError = document.getElementById('state')
+    , zip = document.getElementById('zip')
     , zipError = document.getElementById('zip')
     ;
   phoneNumber.style.backgroundColor='white';
   phoneError.innerHTML=null;
 
-  firstName.style.backgroundColor='white';
-  firstNameError.innerHTML=null;
-
-  lastName.style.backgroundColor='white';
-  lastNameError.innerHTML=null;
-
-  address.style.backgroundColor='white';
-  addressError.innerHTML=null;
-
-  city.style.backgroundColor='white';
-  cityError.inner.HTML=null;
-
   state.style.backgroundColor='white';
-  stateError.inner.HTML=null;
+  stateError.innerHTML=null;
 
   zip.style.backgroundColor='white';
-  zipError.inner.HTML=null;
+  zipError.innerHTML=null;
 
-  if (action === 'add' || action==='Update' || state.value.length < 2) {
-    areThereErrors='yes';
-    state.style.backgroundColor='red';
-    stateError.innerHTML='Enter the state in the format of XX';
-  }
-  if (areThereErrors === 'yes') {
-    return false;
-  } else {
-    return true;
-  }
-}
+  //if (action === 'add' || action==='Update' || state.value.length < 2) {
+    //valid = false;
+    //state.style.backgroundColor='red';
+    //stateError.innerHTML='Enter the state in the format of XX';
+  //}
+  return valid;
+};
 
 function protectFields(action) {
   'use strict';
@@ -118,3 +99,19 @@ function protectFields(action) {
     break;
   }
 }
+action1.onclick = function() {
+  'use strict';
+  protectFields(1);
+};
+action2.onclick = function() {
+  'use strict';
+  protectFields(2);
+};
+action3.onclick = function() {
+  'use strict';
+  protectFields(3);
+};
+action4.onclick = function() {
+  'use strict';
+  protectFields(4);
+};
