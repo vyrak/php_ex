@@ -51,7 +51,7 @@ function checkForm() {
   }
 }
 
-function ProtectFields(Action) {
+function protectFields(action) {
   'use strict';
 
   var submitButton=document.getElementById('SubmitButton');
@@ -63,7 +63,7 @@ function ProtectFields(Action) {
   var state=document.getElementById('state');
   var zip=document.getElementById('zip');
 
-  switch(Action) {
+  switch(action) {
   case 1:
     submitButton.value='Add';
     phoneNumber.readOnly=false;

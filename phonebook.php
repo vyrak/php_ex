@@ -89,10 +89,10 @@
 
       echo " <h1>Phonebook</h1> \n";
       echo " <form name='Phonebook' id='Phonebook' 'Phonebook.php' method='POST' onsubmit='return checkForm()'> \n";
-      echo " <input type='radio' name='Action' id='Action1' value='A' checked onClick='ProtectFields(1)'> Add \n";
-      echo " <input type='radio' name='Action' id='Action2' value='D' checked onClick='ProtectFields(2)'> Delete \n";
-      echo " <input type='radio' name='Action' id='Action3' value='U' checked onClick='ProtectFields(3)'> Update \n";
-      echo " <input type='radio' name='Action' id='Action4' value='L' checked onClick='ProtectFields(4)'> Lookup \n";
+      echo " <input type='radio' name='Action' id='Action1' value='A' checked onClick='protectFields(1)'> Add \n";
+      echo " <input type='radio' name='Action' id='Action2' value='D' checked onClick='protectFields(2)'> Delete \n";
+      echo " <input type='radio' name='Action' id='Action3' value='U' checked onClick='protectFields(3)'> Update \n";
+      echo " <input type='radio' name='Action' id='Action4' value='L' checked onClick='protectFields(4)'> Lookup \n";
       echo " <br/> \n";
       echo " Phone : <input type='text' name='Phone' id='Phone' value='$Phone' size='12' maxlength='12'> \n";
       echo " <br/> \n";
