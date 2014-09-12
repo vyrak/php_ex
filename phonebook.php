@@ -149,8 +149,8 @@
         $City=$_POST['City'];
         $State=$_POST['State'];
         $Zip=$_POST['Zip'];
-        $conn=mysql_connect('localhost', 'chivonk', 'chivonk');
-        mysql_select_db("chivonkDB"), $conn);
+        $conn=mysql_connect('localhost', 'alpha') or die(mysql_error());
+        mysql_select_db("test", $conn);
 
         switch($Action)
         {
@@ -228,7 +228,7 @@
       echo " <input type='radio' name='Action' id='Action4' value='L'
            checked onClick='ProtectedFields(4)> Lookup \n";
       echo " Phone : <input type='text' name='Phone' id='Phone' value='$Phone' size='12' maxlength='12'> \n";
-      echo " <br/> \n"
+      echo " <br/> \n";
       echo " <span id='PhoneError'></span>\n";
       echo " <br/> \n";
 
