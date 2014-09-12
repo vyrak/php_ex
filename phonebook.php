@@ -1,6 +1,7 @@
 <HTML>
   <head>
     <title>Collection of Irrelevant People: The Phonebook</title>
+    <link href="phonebook.css" rel="stylesheet" type="text/css">
   </head>
   <body>
     <h1>Phonebook</h1>
@@ -12,21 +13,21 @@
         <input type="radio" name="action" id="action4" value="L" checked> Lookup
       </div>
       <div>
-        Phone : <input type="text" name="phone" id="phone" size="12" maxlength="12" required>
+        Phone : <input type="text" name="phone" id="phone" maxlength="12" required>
       </div>
       <div>
-        First Name: <input type="text" name="firstName" id="firstName" size="25" maxlength="25">
-        Last Name: <input type="text" name="lastName" id="lastName" size="25" maxlength="25">
+        First Name: <input type="text" name="firstName" id="firstName" maxlength="25">
+        Last Name: <input type="text" name="lastName" id="lastName" maxlength="25">
       </div>
       <div>
-        Address: <input type="text" name="address" id="address" size="45" maxlength="45">
+        Address: <input type="text" name="address" id="address" maxlength="45">
       </div>
       <div>
-        City: <input type="text" name="city" id="city" size="25" maxlength="25">
+        City: <input type="text" name="city" id="city" maxlength="25">
       </div>
       <div>
-        State: <input type="text" name="state" id="state" size="2" pattern="[A-Z]{2}">
-        Zip: <input type="text" name="zip" id="zip" size="5" pattern="\d{5}">
+        State: <input type="text" name="state" id="state" pattern="[A-Z]{2}" maxlength="2">
+        Zip: <input type="text" name="zip" id="zip" pattern="\d{5}" maxlength="5">
       </div>
       <div>
         <input id="submitButton" type="submit" value="Lookup">

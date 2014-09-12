@@ -1,0 +1,7 @@
+div { margin: 1em; }
+input:invalid { border: 1px solid red; }
+#phone { width: 10em; }
+#firstName, #lastName, #city { width: 15em; }
+#address { width: 35em; }
+#state { width: 2em; }
+#zip { width: 5em; }
