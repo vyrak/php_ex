@@ -1,5 +1,7 @@
 var action='Add';
 function checkForm() {
+  'use strict';
+
   var areThereErrors='no';
   var phoneNumber=document.getElementById('Phone');
   phoneNumber.style.backgroundColor='white';
@@ -50,6 +52,8 @@ function checkForm() {
 }
 
 function ProtectFields(Action) {
+  'use strict';
+
   var submitButton=document.getElementById('SubmitButton');
   var phoneNumber=document.getElementById('Phone');
   var firstName=document.getElementById('firstName');
