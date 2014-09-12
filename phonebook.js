@@ -1,6 +1,5 @@
 var action='Add';
-function checkForm()
-{
+function checkForm() {
   var areThereErrors='no';
   var phoneNumber=document.getElementById('Phone');
   phoneNumber.style.backgroundColor='white';
@@ -38,20 +37,19 @@ function checkForm()
   zipError=document.getElementById('zip');
   zipError.inner.HTML=null;
 
-  if(action === 'add' || action==='Update' || state.value.length < 2)
-    {
-      areThereErrors='yes';
-      state.style.backgroundColor='red';
-      stateError.innerHTML="Enter the state in the format of XX";
-    }
-  if (areThereErrors === 'yes')
+  if (action === 'add' || action==='Update' || state.value.length < 2) {
+    areThereErrors='yes';
+    state.style.backgroundColor='red';
+    stateError.innerHTML='Enter the state in the format of XX';
+  }
+  if (areThereErrors === 'yes') {
     return false;
-  else
+  } else {
     return true;
+  }
 }
 
-function ProtectFields(Action)
-{
+function ProtectFields(Action) {
   var submitButton=document.getElementById('SubmitButton');
   var phoneNumber=document.getElementById('Phone');
   var firstName=document.getElementById('firstName');
@@ -61,59 +59,57 @@ function ProtectFields(Action)
   var state=document.getElementById('state');
   var zip=document.getElementById('zip');
 
-  switch(Action)
-  {
-    case 1:
-      submitButton.value='Add';
-      phoneNumber.readOnly=false;
-      firstName.readOnly=false;
-      lastName.readOnly=false;
-      address.readOnly=false;
-      city.readOnly=false;
-      state.readOnly=false;
-      zip.readOnly=false;
-      action='Add';
-      break;
+  switch(Action) {
+  case 1:
+    submitButton.value='Add';
+    phoneNumber.readOnly=false;
+    firstName.readOnly=false;
+    lastName.readOnly=false;
+    address.readOnly=false;
+    city.readOnly=false;
+    state.readOnly=false;
+    zip.readOnly=false;
+    action='Add';
+    break;
 
-    case 2:
-      submitButton.value='Delete';
-      phoneNumber.readOnly=false;
-      firstName.readOnly=false;
-      lastName.readOnly=false;
-      address.readOnly=false;
-      city.readOnly=false;
-      state.readOnly=false;
-      zip.readOnly=false;
-      action='Delete';
-      break;
+  case 2:
+    submitButton.value='Delete';
+    phoneNumber.readOnly=false;
+    firstName.readOnly=false;
+    lastName.readOnly=false;
+    address.readOnly=false;
+    city.readOnly=false;
+    state.readOnly=false;
+    zip.readOnly=false;
+    action='Delete';
+    break;
 
-    case 3:
-      submitButton.value='Edit';
-      phoneNumber.readOnly=false;
-      firstName.readOnly=false;
-      lastName.readOnly=false;
-      address.readOnly=false;
-      city.readOnly=false;
-      state.readOnly=false;
-      zip.readOnly=false;
-      action='Edit';
-      break;
+  case 3:
+    submitButton.value='Edit';
+    phoneNumber.readOnly=false;
+    firstName.readOnly=false;
+    lastName.readOnly=false;
+    address.readOnly=false;
+    city.readOnly=false;
+    state.readOnly=false;
+    zip.readOnly=false;
+    action='Edit';
+    break;
 
-    case 4:
-      submitButton.value='View';
-      phoneNumber.readOnly=false;
-      firstName.readOnly=false;
-      lastName.readOnly=false;
-      address.readOnly=false;
-      city.readOnly=false;
-      state.readOnly=false;
-      zip.readOnly=false;
-      action='View';
-      break;
+  case 4:
+    submitButton.value='View';
+    phoneNumber.readOnly=false;
+    firstName.readOnly=false;
+    lastName.readOnly=false;
+    address.readOnly=false;
+    city.readOnly=false;
+    state.readOnly=false;
+    zip.readOnly=false;
+    action='View';
+    break;
 
-    default:
-      submitButton.value='Error';
-      break;
+  default:
+    submitButton.value='Error';
+    break;
   }
-
 }
